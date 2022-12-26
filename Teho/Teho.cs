@@ -201,14 +201,13 @@ public static class Teho
             var ka = kulukkpp.Where(t => t.Hh == h).Average(t => t.P);
             Console.WriteLine($"{ka,8:0}");
         }
-
     }
 
 
     /// <summary>
     /// Lasketaan kuinka paljon tehosta saadaan itse kulutettua.  Kunkin tunnin
     /// kohdalla käydään läpi kaikki tunnit-listan tunnit eri vuosilta mitä löytyy.
-    /// Eri vuosien ko tuntien maksimia käyettään arvioimaan milloin on pilvinen
+    /// Eri vuosien ko tuntien maksimia käytetään arvioimaan milloin on pilvinen
     /// päivä jolloin ei tarvitse huomioida varjoja. Varjoisuuden määrää varjokerroin (1=ei varjoja).
     /// Kun ko tunnin teho ko vuodelta on saatu selville, lasketaan oma tuotto suhteessa
     /// oman käytön ko tunnin keskiarvoon. 
