@@ -41,7 +41,7 @@ public static class Teho
     //                    varjotaulukoiden mukaista kerrointa tunnille, muuten
     //                    tehoa sellaisenaan (koska ei tule varjoja)
     private const double Varjokerroin = 0.3;
-    private const int KertoimetIndex = 1; // 0=pohjoinen, 1=etäläinen, mitä alempana olevaa paneeliluetteloa käytetään
+    private const int KertoimetIndex = 2; // 0=pohjoinen, 1=etäläinen, 2=ei puu, mitä alempana olevaa paneeliluetteloa käytetään
 
     // Tehotiedosto on sivulta https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html
     // valinnalla "Hourly data" tuotettu csv-tiedosto
@@ -90,7 +90,23 @@ public static class Teho
         "  0  0  0  0  0  0  0  0 10 10 10 16  4  9 18 20 20 13  0  0  0  0  0  0 "  //12.
     };
 
-    private static readonly string[][] Skertoimet = {SkertoimetP, SkertoimetE};
+    private static readonly string[] SkertoimetEiPuuta = { // jos autokatoksen puu puuttuis
+        // 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+        "  0  0  0  0  0  0  0  0 20 20 10 20 20 20 20 20 20 14  0  0  0  0  0  0 ", // 1.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 14  0  0  0  0  0  0 ", // 2.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 14  0  0  0  0  0  0 ", // 3.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 13  0  0  0  0  0  0 ", // 4.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 20  5  0  0  0  0  0 ", // 5.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 18  2  0  0  0  0  0 ", // 6.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 20  2  0  0  0  0  0 ", // 7.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 20  5  0  0  0  0  0 ", // 8.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 14  0  0  0  0  0  0 ", // 9.
+        "  0  0  0  0  0  0  0  0 20 20 20 20 20 20 20 20 20 14  0  0  0  0  0  0 ", //10.
+        "  0  0  0  0  0  0  0  0 10 10 10 20 20 20 20 20 20 14  0  0  0  0  0  0 ", //11.
+        "  0  0  0  0  0  0  0  0 10 10 10 20 20 20 20 20 20 13  0  0  0  0  0  0 "  //12.
+    };
+
+    private static readonly string[][] Skertoimet = {SkertoimetP, SkertoimetE, SkertoimetEiPuuta};
     private static readonly double[,] Kertoimet = new double[12, 24];
 
     
